@@ -7,3 +7,112 @@ if __name__ == '__main__':
     n = int(input())
     print_formatted(n)
 
+# sWAP cASE
+def swap_case(s):
+    return s.swapcase()
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+
+# String Split and Join
+def split_and_join(line):
+    # write your code here
+    line = line.split(" ")
+    line = "-".join(line)
+    return line
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
+
+# What's Your Name?
+def print_full_name(first, last):
+    # Write your code here
+    print ("Hello %s %s! You just delved into python." %(first, last))
+
+if __name__ == '__main__':
+    first_name = input()
+    last_name = input()
+    print_full_name(first_name, last_name)
+
+# Mutations
+def mutate_string(string, position, character):
+    string= list(s)
+    string[position] = str(character)
+    string= "".join(string)
+    return string
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+
+# Find a string
+def count_substring(string, sub_string):
+    count = 0
+    i = string.find(sub_string)
+    
+    while i != -1:
+        count+=1
+        i = string.find(sub_string, i+1)
+    return count
+
+if __name__ == '__main__':
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
+
+# String Validators
+if __name__ == '__main__':
+    s = input()
+    print (any(i.isalnum() for i in s))
+    print (any(i.isalpha() for i in s))
+    print (any(i.isdigit() for i in s))
+    print (any(i.islower() for i in s))
+    print (any(i.isupper() for i in s))
+
+# Text Alignment
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+# Text Wrap
+def wrap(string, max_width):
+    '''Wraps the string into a paragraph of width w'''
+    string = [c for c in string]
+
+    for i in range(max_width, len(string) + max_width, max_width+1):
+        string.insert(i, '\n')
+    return ("").join(string)
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+
+# 
